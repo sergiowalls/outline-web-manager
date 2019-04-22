@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Row} from "react-bootstrap"
+import {Container, Row} from "react-bootstrap"
 
 import Key from './Key'
 import AddAccessKey from "./AddAccessKey";
@@ -32,14 +32,14 @@ export default class KeyList extends Component {
         const {keys} = this.state;
 
         return (
-            <>
+            <Container>
                 <Row><h2>Access keys</h2></Row>
                 <Row>
                     {keys.map(k => <Key key={k.id} current={k} apiUrl={this.apiUrl}
                                         notifyDeleted={this.removeKey.bind(this)}/>)}
                 </Row>
-                <AddAccessKey apiUrl={this.apiUrl} notifyAdded={this.addKey.bind(this)}/>
-            </>
+                <Row><AddAccessKey apiUrl={this.apiUrl} notifyAdded={this.addKey.bind(this)}/></Row>
+            </Container>
         )
     }
 }

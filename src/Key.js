@@ -23,9 +23,9 @@ export default class Key extends Component {
 
     deleteKey() {
         axios
-            .delete(`${this.apiUrl}/access-keys/${this.currentKey.id}`)
+            .delete(`${this.apiUrl}/access-keys/${this.state.currentKey.id}`)
             .then(() => {
-                this.notifyDeleted(this.currentKey.id);
+                this.notifyDeleted(this.state.currentKey.id);
             })
             .catch(error => console.log(error));
     }
