@@ -37,6 +37,8 @@ export default class Home extends Component {
 
         if (this.state.server && this.state.keys) {
             const {name, createdTimestampMs, metricsEnabled, portForNewAccessKeys, serverId} = this.state.server;
+            const date = new Date(createdTimestampMs).toLocaleString();
+
             return (
                 <>
                     <Row><h2>Server details</h2></Row>
@@ -44,7 +46,7 @@ export default class Home extends Component {
                         <Card.Body>
                             <h5 className="card-title">{name}</h5>
                             <ListGroup variant="flush">
-                                <ListGroup.Item><span>Created on:</span> {createdTimestampMs}</ListGroup.Item>
+                                <ListGroup.Item><span>Created on:</span> {date}</ListGroup.Item>
                                 <ListGroup.Item><span>Metrics enabled:</span> {metricsEnabled ? "true" : "false"}</ListGroup.Item>
                                 <ListGroup.Item><span>Port for new access keys:</span> {portForNewAccessKeys}</ListGroup.Item>
                                 <ListGroup.Item><span>Server ID:</span> {serverId}</ListGroup.Item>
