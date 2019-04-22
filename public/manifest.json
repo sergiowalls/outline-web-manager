@@ -1,0 +1,15 @@
+{
+  "short_name": "Outline Web Manager",
+  "name": "Outline Web Manager",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "56x56",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#009688"
+}
