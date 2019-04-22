@@ -34,19 +34,22 @@ export default class Home extends Component {
             return <Redirect to='/'/>;
         }
 
-        if (this.state.server && this.state.keys)
+        if (this.state.server && this.state.keys) {
+            const {name, createdTimestampMs, metricsEnabled, portForNewAccessKeys, serverId} = this.state.server;
             return (
                 <div>
-                    <h1>{this.state.server.name}</h1>
+                    <h1>{name}</h1>
                     <ul>
-                        <li>Created on: {this.state.server.createdTimestampMs}</li>
-                        <li>Metrics enabled: {this.state.server.metricsEnabled ? "true" : "false"}</li>
-                        <li>Port for new access keys: {this.state.server.portForNewAccessKeys}</li>
-                        <li>Server ID: {this.state.server.serverId}</li>
+                        <li>Created on: {createdTimestampMs}</li>
+                        <li>Metrics enabled: {metricsEnabled ? "true" : "false"}</li>
+                        <li>Port for new access keys: {portForNewAccessKeys}</li>
+                        <li>Server ID: {serverId}</li>
                     </ul>
                     <KeyList keys={this.state.keys} apiUrl={this.state.apiUrl}/>
                 </div>
             );
+        }
+
         return null;
     }
 
