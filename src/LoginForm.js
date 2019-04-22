@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
 import axios from "axios";
+import {Button, Form, FormControl, FormGroup, FormLabel} from "react-bootstrap"
+import Alert from "react-bootstrap/Alert";
 
 export default class LoginForm extends Component {
     constructor(props) {
@@ -36,20 +38,16 @@ export default class LoginForm extends Component {
         }
 
         return (
-            <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                    <label>
-                        Enter your API url (without the last slash):
-                    </label>
-                    <input type="text" placeholder="https://example.com/1234abc" className="form-control"
-                           value={this.state.apiUrl} onChange={this.handleChange}/>
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+            <Form onSubmit={this.handleSubmit}>
+                <FormGroup>
+                    <FormLabel>Enter your API url (without the last slash):</FormLabel>
+                    <FormControl type="text" placeholder="https://example.com/1234abc"
+                                 value={this.state.apiUrl} onChange={this.handleChange}/>
+                </FormGroup>
+                <Button variant="primary" type="submit">Submit</Button>
                 {error &&
-                <div className="alert alert-warning" role="alert">
-                    Wrong url! Perhaps you have misspelled it or server is down...
-                </div>}
-            </form>
+                <Alert variant="warning">Wrong url! Perhaps you have misspelled it or server is down...</Alert>}
+            </Form>
         );
     }
 }

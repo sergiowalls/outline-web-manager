@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import axios from "axios";
+import {Button, Card, Container} from "react-bootstrap"
 
 export default class Key extends Component {
 
@@ -24,19 +25,21 @@ export default class Key extends Component {
 
     render() {
         return (
-            <div className="card container-fluid">
-                <div className="card-body">
-                    <h5 className="card-title">Key {this.currentKey.id}</h5>
-                    <h6 className="card-subtitle mb-2 text-muted">Name: {this.currentKey.name}</h6>
-                    <ul>
-                        <li>Access Url: {this.currentKey.accessUrl}</li>
-                        <li>Method: {this.currentKey.method}</li>
-                        <li>Password: {this.currentKey.password}</li>
-                        <li>Port: {this.currentKey.port}</li>
-                    </ul>
-                    <button type="button" className="btn btn-primary">Rename</button>
-                    <button type="button" className="btn btn-danger" onClick={this.deleteKey}>Delete</button>
-                </div>
-            </div>)
+            <Container fluid="true">
+                <Card>
+                    <Card.Body>
+                        <h5 className="card-title">Key {this.currentKey.id}</h5>
+                        <h6 className="card-subtitle mb-2 text-muted">Name: {this.currentKey.name}</h6>
+                        <ul>
+                            <li>Access Url: {this.currentKey.accessUrl}</li>
+                            <li>Method: {this.currentKey.method}</li>
+                            <li>Password: {this.currentKey.password}</li>
+                            <li>Port: {this.currentKey.port}</li>
+                        </ul>
+                        <Button variant="primary">Rename</Button>
+                        <Button variant="danger" onClick={this.deleteKey}>Delete</Button>
+                    </Card.Body>
+                </Card>
+            </Container>)
     }
 }
