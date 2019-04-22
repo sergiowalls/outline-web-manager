@@ -7,14 +7,14 @@ export default class Key extends Component {
     constructor(props, context) {
         super(props, context);
         this.currentKey = props.current;
+        this.apiUrl = props.apiUrl;
 
         this.deleteKey = this.deleteKey.bind(this);
     }
 
     deleteKey() {
-        let apiUrl = localStorage.getItem('apiUrl');
         axios
-            .delete(`${apiUrl}/access-keys/${this.currentKey.id}`)
+            .delete(`${this.apiUrl}/access-keys/${this.currentKey.id}`)
             .then(response => {
 
             })
