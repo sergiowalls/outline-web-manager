@@ -1,25 +1,21 @@
 import React, {Component} from "react";
-import {Button, Modal, Row} from "react-bootstrap"
+import {Row} from "react-bootstrap"
 
 import Key from './Key'
+import AddAccessKey from "./AddAccessKey";
 
 export default class KeyList extends Component {
 
     constructor(props, context) {
         super(props, context);
-        this.state = {keys: props.keys, show: false};
+        this.state = {keys: props.keys};
         this.apiUrl = props.apiUrl;
-
-        this.handleShow = this.handleShow.bind(this);
-        this.handleClose = this.handleClose.bind(this);
     }
 
-    handleClose() {
-        this.setState({show: false});
-    }
-
-    handleShow() {
-        this.setState({show: true});
+    addKey(key) {
+        const newState = this.state;
+        newState.keys.push(key);
+        this.setState(newState);
     }
 
     removeKey(id) {
@@ -42,23 +38,7 @@ export default class KeyList extends Component {
                     {keys.map(k => <Key key={k.id} current={k} apiUrl={this.apiUrl}
                                         notifyDeleted={this.removeKey.bind(this)}/>)}
                 </Row>
-                <Row>
-                    <Button variant="success" onClick={this.handleShow}>New key</Button>
-                </Row>
-                <Modal show={this.state.show} onHide={this.handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Add new access key</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>Would you like to add a new access key?</Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={this.handleClose}>
-                            Cancel
-                        </Button>
-                        <Button variant="primary" onClick={this.handleClose}>
-                            Add
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
+                <AddAccessKey apiUrl={this.apiUrl} notifyAdded={this.addKey.bind(this)}/>
             </>
         )
     }
