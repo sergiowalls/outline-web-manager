@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import {Container} from "react-bootstrap";
 
+import './styles.css'
 import LoginForm from './LoginForm'
 import Home from './Home'
 

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
 import axios from "axios";
-import {Button, Form, FormControl, FormGroup, FormLabel} from "react-bootstrap"
-import Alert from "react-bootstrap/Alert";
+import {Alert, Button, Card, Col, Form, FormControl, FormGroup, FormLabel, Row} from "react-bootstrap"
 
 export default class LoginForm extends Component {
     constructor(props) {
@@ -38,16 +37,26 @@ export default class LoginForm extends Component {
         }
 
         return (
-            <Form onSubmit={this.handleSubmit}>
-                <FormGroup>
-                    <FormLabel>Enter your API url (without the last slash):</FormLabel>
-                    <FormControl type="text" placeholder="https://example.com/1234abc"
-                                 value={this.state.apiUrl} onChange={this.handleChange}/>
-                </FormGroup>
-                <Button variant="primary" type="submit">Submit</Button>
-                {error &&
-                <Alert variant="warning">Wrong url! Perhaps you have misspelled it or server is down...</Alert>}
-            </Form>
+            <>
+                <h1 className="text-center">Welcome to Outline Web Manager</h1>
+                <Row className="justify-content-md-center"><Col s={12} md={8} lg={6} xl={5}>
+                    <Card>
+                        <Card.Body>
+                            <Form onSubmit={this.handleSubmit}>
+                                <FormGroup>
+                                    <FormLabel>Enter your API url (without the last slash):</FormLabel>
+                                    <FormControl type="text" placeholder="https://example.com/1234abc"
+                                                 value={this.state.apiUrl} onChange={this.handleChange}/>
+                                </FormGroup>
+                                <Button variant="primary" type="submit">Submit</Button>
+                                {error &&
+                                <Alert variant="warning">Wrong url! Perhaps you have misspelled it or server is
+                                    down...</Alert>}
+                            </Form>
+                        </Card.Body>
+                    </Card>
+                </Col></Row>
+            </>
         );
     }
 }

@@ -1,0 +1,36 @@
+body {
+    background-color: #263238;
+    color: #ffffff;
+}
+
+.card {
+    color: #000000;
+}
+
+.list-group {
+    color: #000000;
+}
+
+.container-fluid + .container-fluid {
+    margin-top: 10px;
+}
+
+.row + .row {
+    margin-top: 10px;
+}
+
+.card-body > * {
+    margin-bottom: 10px;
+}
+
+button + button {
+    margin-left: 5px;
+}
+
+span {
+    font-weight: 500;
+}
+
+.modal-dialog {
+    color: #000000;
+}

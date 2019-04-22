@@ -3,7 +3,7 @@ import {Redirect} from "react-router-dom";
 import axios from "axios";
 
 import KeyList from "./KeyList";
-import {ListGroup} from "react-bootstrap";
+import {Card, ListGroup, Row} from "react-bootstrap";
 
 export default class Home extends Component {
 
@@ -39,14 +39,20 @@ export default class Home extends Component {
             const {name, createdTimestampMs, metricsEnabled, portForNewAccessKeys, serverId} = this.state.server;
             return (
                 <>
-                    <h1>{name}</h1>
-                    <ListGroup variant="flush">
-                        <ListGroup.Item>Created on: {createdTimestampMs}</ListGroup.Item>
-                        <ListGroup.Item>Metrics enabled: {metricsEnabled ? "true" : "false"}</ListGroup.Item>
-                        <ListGroup.Item>Port for new access keys: {portForNewAccessKeys}</ListGroup.Item>
-                        <ListGroup.Item>Server ID: {serverId}</ListGroup.Item>
-                    </ListGroup>
-                    <KeyList keys={this.state.keys} apiUrl={this.state.apiUrl}/>
+                    <Row><h2>Server details</h2></Row>
+                    <Row><Card>
+                        <Card.Body>
+                            <h5 className="card-title">{name}</h5>
+                            <ListGroup variant="flush">
+                                <ListGroup.Item><span>Created on:</span> {createdTimestampMs}</ListGroup.Item>
+                                <ListGroup.Item><span>Metrics enabled:</span> {metricsEnabled ? "true" : "false"}</ListGroup.Item>
+                                <ListGroup.Item><span>Port for new access keys:</span> {portForNewAccessKeys}</ListGroup.Item>
+                                <ListGroup.Item><span>Server ID:</span> {serverId}</ListGroup.Item>
+                            </ListGroup>
+                        </Card.Body>
+                    </Card>
+                    </Row>
+                    <Row><KeyList keys={this.state.keys} apiUrl={this.state.apiUrl}/></Row>
                 </>
             );
         }

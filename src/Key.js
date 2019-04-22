@@ -39,11 +39,11 @@ export default class Key extends Component {
                     <Card.Body>
                         <h5 className="card-title">Key {id}</h5>
                         <ListGroup variant="flush">
-                            <ListGroup.Item>Name: {name}</ListGroup.Item>
-                            <ListGroup.Item>Access Url: {accessUrl}</ListGroup.Item>
-                            <ListGroup.Item>Method: {method}</ListGroup.Item>
-                            <ListGroup.Item>Password: {password}</ListGroup.Item>
-                            <ListGroup.Item>Port: {port}</ListGroup.Item>
+                            <ListGroup.Item><span>Name:</span> {name}</ListGroup.Item>
+                            <ListGroup.Item><span>Access url:</span> {accessUrl}</ListGroup.Item>
+                            <ListGroup.Item><span>Method:</span> {method}</ListGroup.Item>
+                            <ListGroup.Item><span>Password:</span> {password}</ListGroup.Item>
+                            <ListGroup.Item><span>Port:</span> {port}</ListGroup.Item>
                         </ListGroup>
                         <RenameAccessKey apiUrl={this.apiUrl} id={id} name={name}
                                          notifyRenamed={this.updateKeyName.bind(this)}/>
