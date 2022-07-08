@@ -4,7 +4,7 @@ services:
   outline-web-manager:
     build: .
     ports:
-      2204:80
+      - "2204:80"
 
     volumes:
       - ./app:/app
