@@ -3,9 +3,11 @@ version: '2'
 services:
   outline-web-manager:
     build: .
+    ports:
+      2204:80
+
     volumes:
       - ./app:/app
     container_name: outline-web-manager
-    ports:
-      -2204:80
+    
     restart: always
