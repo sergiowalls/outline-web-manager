@@ -6,4 +6,6 @@ services:
     volumes:
       - ./app:/app
     container_name: outline-web-manager
+    ports:
+      -2204:80
     restart: always
