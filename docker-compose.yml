@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  outline-web-manager:
+    build: .
+    volumes:
+      - ./app:/app
+    container_name: outline-web-manager
+    restart: always
