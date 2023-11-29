@@ -1,5 +1,5 @@
 ---
-name: Release
+name: Release Docker Image
 on:
   push:
     branches:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Release new version
+    name: Release new Docker Image
     runs-on: ubuntu-latest
     steps:
       - name: Check out the codebase.
