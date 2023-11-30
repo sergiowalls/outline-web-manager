@@ -30,4 +30,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: framebassman/outline-web-manager:${{ steps.package-version.outputs.current-version }}
+          tags: ${{ github.repository }}:${{ steps.package-version.outputs.current-version }}
