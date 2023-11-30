@@ -3,7 +3,7 @@ name: Release Docker Image
 on:
   push:
     branches:
-      - "feature/docker-image"
+      - "*"
 
 jobs:
   build:
